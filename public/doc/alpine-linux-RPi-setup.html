@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/assets/style.css">
+	<link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+	<title>Alpine-Linux-RPi-Setup</title>
+
+</head>
+<body>
+	<nav id="navbar">
+		<a class="button" href="/">Home</a>
+		<a class="button" href="/blog.html">Blog</a>
+		<a class="button" href="/doc.html">Doc</a>
+		<a class="button" href="/about.html">About</a>
+	</nav>
+	<div id="data">
+		<h1>Alpine Linux RPi Setup</h1>
+		<br/>
+		<p>
+			I use Alpine linux on my second computer (Raspberry Pi 3 Model B+). This document lists the steps used to setup my system. All the refrence links can be found at the bottom of this document.
+		</p>
+		<hr/>
+		<br/>
+		<h2>Getting Started</h2>
+		<br/>
+		<p>
+			The first step is grabbing a RPi archive from the Alpine Linux downloads page.
+		</p>
+		<br/>
+		<h3>Preparing the SD card:</h3>
+		<br/>
+		<p>
+			First, check the device name. Most likely going to be /dev/mmcblk0
+		</p>
+		<br/>
+<pre>
+fdisk -l
+</pre>
+		<br/>
+		<p>
+			Now we can create two partitions on the SD card. One for boot, another for everything else.
+		</p>
+		<br/>
+<pre>
+fdisk /dev/mmcblk0
+</pre>
+		<br/>
+		<ul>
+			<li>Delete exixting partitions if required using 'd' command.</li>
+			<li>Use 'n' to create new partition at position 1.</li>
+			<li>Press ENTER for default start location.</li>
+			<li>Allocate +256M for end position.</li>
+			<li>Use 't', set type to 'WIN95 FAT32 (LBA)'</li>
+			<li>Use 'n' to create new partition at position 2.</li>
+			<li>Press ENTER for default start location.</li>
+			<li>Press ENTER for default end location to cover entire remaining space.</li>
+			<li>Use 't', set type to 'Linux'</li>
+			<li>Use 'a' to mark partition 1 as bootable.</li>
+			<li>Use 'w' to write changes to SD card.</li>
+		</ul>
+		<br/>
+		<p>
+			Now we gotta format the partitions we just created (make sure to check the name of partitions using 'fdisk -l'):
+		</p>
+		<br/>
+		<p>
+			In my case partitions were '/dev/mmcblk0p1' and '/dev/mmcblk0p2' (may need e2fsprogs for ext4 formatting)
+		</p>
+		<br/>
+<pre>
+mkdosfs -F 32 /dev/mmcblk0p1
+mkfs.ext4 /dev/mmcblk0p2
+</pre>
+		<br/>
+		<p>
+			Create a directory for mounting partition 1 and extract the Alpine archive in it:
+		</p>
+		<br/>
+<pre>
+mkdir /mnt/myalpine
+mount /dev/mmcblk0p1 /mnt/myalpine
+cd /mnt/myalpine
+tar xvfz ~/Downloads/alpine-rpi-*-aarch64.tar.gz
+</pre>
+		<br/>
+		<p>
+			Due to a bug, it is recommended to add a file named 'usercfg.txt' in the partition. The second line enables audio. With following data:
+		</p>
+		<br/>
+<pre>
+enable_uart=1
+dtparam=audio=on
+</pre>
+		<br/>
+		<p>
+			Un-mount the partition:
+		</p>
+		<br/>
+<pre>
+umount /mnt/myalpine
+</pre>
+		<br/>
+		<p>
+			Hooray! The SD card is all set to boot and start installation.
+		</p>
+		<hr/>
+		<br/>
+		<h2>Installing Alpine Linux</h2>
+		<br/>
+		<p>
+			Insert the SD card into RPi. Connect your display and keyboard. Power everything up!
+		</p>
+		<br/>
+		<p>
+			Login using 'root' (requires no password)
+		</p>
+		<br/>
+		<p>
+			We will use Alpine's default setup script:
+		</p>
+		<br/>
+<pre>
+setup-alpine
+</pre>
+		<br/>
+		<ul>
+			<li>Use '?' where in doubt.</li>
+			<li>Enter 'none' at 'save config' and 'save cache'</li>
+		</ul>
+		<br/>
+		<p>
+			Mount partition 2 and install alpine:
+		</p>
+		<br/>
+<pre>
+mount /dev/mmcblk0p2 /mnt
+export FORCE_BOOTFS=1
+setup-disk -m sys /mnt
+</pre>
+		<br/>
+		<p>
+			Remount partiton 1 and cleanup:
+		</p>
+<pre>
+mount -o remount,rw /media/mmcblk0p1
+rm -f /media/mmcblk0p1/boot/*
+cd /mnt
+rm boot/boot
+</pre>
+		<br/>
+		<p>
+			The right place for boot is in partition 1:
+		</p>
+		<br/>
+<pre>
+mv boot/* /media/mmcblk0p1/boot/
+</pre>
+		<br/>
+		<p>
+			We don't need boot in partition 2 now:
+		</p>
+		<br/>
+<pre>
+rm -Rf boot
+</pre>
+		<br/>
+		<p>
+			A directory for partition 1 on next boot:
+		</p>
+		<br/>
+<pre>
+mkdir media/mmcblk0p1
+</pre>
+		<br/>
+		<p>
+			A link for boot from partition 1. Don't worry about error.
+		</p>
+		<br/>
+<pre>
+ln -s media/mmcblk0p1/boot boot
+</pre>
+		<br/>
+		<p>
+			Update /etc/fstab:
+		</p>
+		<br/>
+<pre>
+echo "/dev/mmcblk0p1 /media/mmcblk0p1 vfat defaults 0 0" >> etc/fstab
+set -i '/cdrom/d' etc/fstab
+set -i '/floppy/d' etc/fstab
+cd /media/mmcblk0p1
+</pre>
+		<br/>
+		<p>
+			Indicate the root filesystem is on partition 2
+		</p>
+		<br/>
+<pre>
+sed -i 's/$/ root=\/dev\/mmcblk0p2/' /media/mmcblk0p1/cmdline.txt
+</pre>
+		<br/>
+		<p>
+			The installation is now complete, you can use 'poweroff' to continue steps after installation later or use 'reboot' to restart system and continue with post-installation steps.
+		</p>
+		<hr/>
+		<br/>
+		<h2>Post Installation Setup</h2>
+		<br/>
+		<p>
+			Enable Software Clock and Disable hardware clock
+		</p>
+		<br/>
+<pre>
+rc-update add swclock boot
+rc-update del hwclock boot
+</pre>
+		<br/>
+		<p>
+			Enable checking time using Network Time Protocol
+		</p>
+		<br/>
+<pre>
+setup-ntp
+</pre>
+		<br/>
+		<p>
+			Updating System
+		</p>
+		<br/>
+<pre>
+apk update
+apk upgrade
+</pre>
+		<br/>
+		<p>
+			Now any applications of liking may be installed. My setup may be found in 'Doc/My Configurations' in this website.
+		</p>
+		<hr/>
+		<br/>
+		<h2>Refrences and Links</h2>
+		<br/>
+		<a href="https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi">⚬ RPi Sys Installation</a><br/>
+		<a href="https://wiki.alpinelinux.org/wiki/Raspberry_Pi">⚬ Rpi General Installation</a><br/>
+		<a href="https://wiki.alpinelinux.org/wiki/Raspberry_Pi_-_Headless_Installation">⚬ RPi Headless Installation</a><br/>
+		<a href="https://wiki.alpinelinux.org/wiki/Raspberry_Pi_3_-_Browser_Client">⚬ RPi Browser Client</a><br/>
+		<a href="https://docs.alpinelinux.org/user-handbook/0.1a/index.html">⚬ Alpine User Handbook</a><br/>
+		<hr/>
+		<br/>
+		<p>
+			See ya!
+		</p>
+		<br/>
+
+	</div>
+	<footer>
+		<p id="bottomtext">
+			Patience is a golden virtue 🌾
+		</p>
+	</footer>
+</body>
+</html>

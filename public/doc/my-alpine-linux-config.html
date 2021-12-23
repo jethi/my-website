@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/assets/style.css">
+	<link rel="shortcut icon" type="image/png" href="/assets/favicon.png"/>
+	<title>My-Alpine-Linux-Config</title>
+
+</head>
+<body>
+	<nav id="navbar">
+		<a class="button" href="/">Home</a>
+		<a class="button" href="/blog.html">Blog</a>
+		<a class="button" href="/doc.html">Doc</a>
+		<a class="button" href="/about.html">About</a>
+	</nav>
+	<div id="data">
+		<h1>My Alpine Linux Configurations</h1>
+		<br/>
+		<p>
+			This document illustrates configuration of Alpine Linux post-installation.
+		</p>
+		<hr/>
+		<br/>
+		<h2>General</h2>
+		<br/>
+		<p>
+			Update and upgrade:
+		</p>
+		<br/>
+<pre>
+apk update
+apk upgrade
+</pre>
+		<br/>
+		<p>
+			Setup sudo:
+		</p>
+		<br/>
+<pre>
+apk add sudo
+adduser foo
+adduser foo wheel
+visudo
+</pre>
+		<br/>
+		<p>
+			Uncomment line 82 with 'wheel ALL=(ALL) ALL'
+		</p>
+		<br/>
+		<p>
+			Installing some general packages:
+		</p>
+<pre>
+sudo apk add build-base git curl wget
+</pre>
+		<br/>
+		<p>
+			Installing dependencies for x:
+		</p>
+		<br/>
+<pre>
+sudo apk add libx11-dev libxft-dev libxinerama-dev ncurses dbus-x11
+</pre>
+		<br/>
+		<p>
+			RPi specific dependencies for x:
+		</p>
+		<br/>
+<pre>
+sudo apk add xf86-video-fbdev
+</pre>
+		<br/>
+		<p>
+			Clone, configure and install dwm, dmenu and st. OR any other desktop enviornment of your choice.
+		</p>
+		<br/>
+		<p>
+			I use xwallpaper for setting my wallpaper. Following are the dependencies for compiling it:
+		</p>
+		<br/>
+<pre>
+sudo apk add autoconf libxpm libxpm-dev libxcb libxcb-dev xcb-util xcb-util-dev xcb-util-image xcb-util-image-dev pixman pixman-dev libjpeg-turbo libjpeg-turbo-dev libpng libpng-dev libseccomp libseccomp-dev
+</pre>
+		<br/>
+		<p>
+			It might need this too:
+		</p>
+		<br/>
+<pre>
+sudo apk add automake
+</pre>
+		<br/>
+		<p>
+			I use micro text editor.
+		</p>
+		<br/>
+		<p>
+			Some other packages that I like to install:
+		</p>
+		<br/>
+<pre>
+sudo apk add htop man-db man-db-doc man-pages tree xclip chromium sxiv go ffmpeg mpd mpv
+</pre>
+		<br/>
+		<h2>.profile</h2>
+		<br/>
+<pre>
+[ -n "$BASH_VERSION" -o "$BB_ASH_VERSION" ] && PS1='\[\e[38;2;255;192;203m\]:\[\e[38;2;159;175;175m\].\[\e[38;2;255;207;175m\]::\[\e[38;2;128;212;170m\]\W\[\e[38;2;0;0;1m\]\$\[\e[m\] '
+export PS1
+
+# Non-login shell
+export ENV=~/.shrc
+
+# Go
+export PATH=$PATH:~/.local/go/bin:~/go/bin
+export GOPATH=$HOME/go
+
+# General
+export PATH=$PATH:~/.local/bin
+
+# pfetch variable
+export PF_INFO="ascii title os host kernel uptime pkgs shell wm memory palette"
+
+startx
+</pre>
+		<hr/>
+		<br/>
+		<h2>.xinitrc</h2>
+		<br/>
+<pre>
+xwallpaper --zoom ~/.local/wallpapers/wp1-mountains.jpg &
+topbar &
+exec dwm
+</pre>
+		<hr/>
+		<br/>
+		<h2>topbar</h2>
+		<br/>
+<pre>
+#!/bin/sh
+
+cdate() {
+	date="$(date | awk '{print $1, $2, $3}')"
+	time="$(date +%r)"
+	echo " [$date  $time] "
+}
+
+mem() {
+	mem="$(free -m | awk '/Mem:/ { printf $3"M / "$2"M" }')"
+	echo "[RAM: $mem] "
+}
+
+cputemp() {
+	temp="$(cat /sys/devices/virtual/thermal/thermal_zone0/temp)"
+	temp="$(expr $temp / 1000)"
+	echo "[CPU: $temp C]"
+}
+
+status() {
+	echo "$(cdate) $(mem) $(cputemp)"
+}
+
+while true; do
+	xsetroot -name "$(status)"
+	sleep 1
+done
+</pre>
+		<hr/>
+		<br/>
+		<h2>.shrc</h2>
+		<br/>
+<pre>
+# Executed for non-login shells.
+# Path to this file needs to be set in ENV variable
+
+alias ls='ls --group-directories-first'
+alias du='du -hs'
+alias m='micro'
+</pre>
+		<hr/>
+		<br/>
+		<h2>Refrences and Links</h2>
+		<br/>
+		<a href="https://suckless.org/">⚬ Suckless</a><br/>
+		<a href="https://micro-editor.github.io/">⚬ Micro Text Editor</a><br/>
+		<a href="https://github.com/stoeckmann/xwallpaper">⚬ Xwallpaper</a><br/>
+		<hr/>
+		<br/>
+		<p>
+			That's all!
+		</p>
+		<br/>
+
+	</div>
+	<footer>
+		<p id="bottomtext">
+			🌼
+		</p>
+	</footer>
+</body>
+</html>
