@@ -1,0 +1,31 @@
+# Micro Text Editor
+
+My configuration for micro text editor.
+_
+
+## Download go-plugin for micro
+
+```
+micro -plugin install go
+```
+
+Source: https://github.com/micro-editor/go-plugin
+
+Note: gofmt on save is already enabled; might have to turn on goimports on save if required.
+_
+
+## Enabe these options
+
+```
+set colorscheme zenburn
+set softwrap true
+set wordwrap true
+set rmtrailingws true
+```
+
+Note: xclip is needed as clipboard for external copy-paste operations.
+_
+
+We are done here.
+
+^ 🌼

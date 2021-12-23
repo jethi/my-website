@@ -1,0 +1,91 @@
+# VW Polo GTI spec proposal for India
+
+27 Sep, 2021 by Arsh Jethi
+_
+
+## Objective
+
+This blog is kind of in continuation to the last one, the only difference being- here I try to be more realistic. On a sidenote VW Taigun was just released; its a fine car but with Mahindra XUV 700 available as an option...
+
+I am going to propose two models for VW Polo GTI one focuses on essentials and other gives extra features (for India). For ease of explaining would refer the model with extra features as 'Optional'. The last time VW Polo GTI was available in India it was a 3 door CBU unit offered only with automatic transmission for whooping 24 Lakhs. See what's wrong here ? If you can't find anything wrong in that; Fair warning: stop reading now.
+
+Something controversial: I like India's VW Polo aesthetics better than the new European spec. Say what you may ;)
+
+## Let's Start
+
+I shall outline the essentials here. The optional model features would be listed in the end.
+
+### Technical Specifications
+
+* Engine: 1.5 L TSI EVO producing 150 PS and 250 Nm
+* Transmission: 6 Speed Manual
+* Brakes: Disc (both front and rear)
+* Wheels and Tyres: No shiny diamond cut wheels please. I like R16 PORTAGO wheels on current Polo GT
+* Suspension: Engineers may choose the best setup
+* Kerb Weight: Max 1200 Kg
+
+### Build
+
+* Clean and Simple (Polo's design is already timeless)
+* Limited chrome usage
+* No fake vents/intakes
+* LED Lighting (No Halogens in GTI)
+
+### Safety
+
+Volkswagen always does a good job at safety, no need to explicitly outline things.
+
+### Technology
+
+* Driver side window one touch up/dowm
+* Manual Dimming IRVM (relief from high beamers)
+* Analog Tachometer (Porsche always gets this right)
+* Central Locking
+* No Keyless entry
+* No Push start stop
+* No Touch Displays
+* Bluetooth enabled music player with FM
+* Good Speakers and a sub-woofer
+* Climate Control
+* Solid physical controls for Music System and Air conditioner
+* 12 v socket or Type C with PD (Embrace Standards and Flexibility)
+* Tire Pressure Monitoring (Important to help keep pressures right)
+* Rear Defogger and Wiper
+
+## Optional Model
+
+* DSG 7 Speed Automatic
+* More airbags
+* Touch display infotainment
+* Reverse camera
+* Leather Seats
+* Hill Start Assist
+* Keyless Entry
+* Push start stop
+* anything else that helps sell more cars, just don't mess with the basic model
+* please no mechanical, lighting and wheels size difference between essential and optional model
+
+## Pricing
+
+### Essential - 11 Lakhs
+
+The focused machine.
+
+Compete with Hyundai i20 N Line with more performance and less features. Less is more, perfected for petrolheads with a pinch of practical features.
+
+Anyone who wants more features and less power can go for existing VW Polo GT or the more expensive Optional model.
+
+### Optional
+
+Anyone who wants all the features and fancy bits but can't afford VW Taigun GT
+
+Honestly, I don't care about this model at all. The less things that can break the better. There is always a compromise between convenience and control. This model needs to exist just to prevent anyone from complaining about lack of features.
+_
+
+Fingers Crossed,
+Thank you
+
+Share your opinion: arshjethi[at]protonmail.com
+
+^ So much fun, so little time 🐸
+

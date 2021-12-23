@@ -1,0 +1,179 @@
+# Alpine Linux RPi Setup
+
+I use Alpine linux on my second computer (Raspberry Pi 3 Model B+). This document lists the steps used to setup my system. All the refrence links can be found at the bottom of this document.
+_
+
+## Getting Started
+
+The first step is grabbing a RPi archive from the Alpine Linux downloads page.
+
+### Preparing the SD card:
+
+First, check the device name. Most likely going to be /dev/mmcblk0
+
+```
+fdisk -l
+```
+
+Now we can create two partitions on the SD card. One for boot, another for everything else.
+
+```
+fdisk /dev/mmcblk0
+```
+
+* Delete exixting partitions if required using 'd' command.
+* Use 'n' to create new partition at position 1.
+* Press ENTER for default start location.
+* Allocate +256M for end position.
+* Use 't', set type to 'WIN95 FAT32 (LBA)'
+* Use 'n' to create new partition at position 2.
+* Press ENTER for default start location.
+* Press ENTER for default end location to cover entire remaining space.
+* Use 't', set type to 'Linux'
+* Use 'a' to mark partition 1 as bootable.
+* Use 'w' to write changes to SD card.
+
+Now we gotta format the partitions we just created (make sure to check the name of partitions using 'fdisk -l'):
+
+In my case partitions were '/dev/mmcblk0p1' and '/dev/mmcblk0p2' (may need e2fsprogs for ext4 formatting)
+
+```
+mkdosfs -F 32 /dev/mmcblk0p1
+mkfs.ext4 /dev/mmcblk0p2
+```
+
+Create a directory for mounting partition 1 and extract the Alpine archive in it:
+
+```
+mkdir /mnt/myalpine
+mount /dev/mmcblk0p1 /mnt/myalpine
+cd /mnt/myalpine
+tar xvfz ~/Downloads/alpine-rpi-*-aarch64.tar.gz
+```
+
+Due to a bug, it is recommended to add a file named 'usercfg.txt' in the partition. The second line enables audio. With following data:
+
+```
+enable_uart=1
+dtparam=audio=on
+```
+
+Un-mount the partition:
+
+```
+umount /mnt/myalpine
+```
+
+Hooray! The SD card is all set to boot and start installation.
+_
+
+## Installing Alpine Linux
+
+Insert the SD card into RPi. Connect your display and keyboard. Power everything up!
+
+Login using 'root' (requires no password)
+
+We will use Alpine's default setup script:
+
+```
+setup-alpine
+```
+
+* Use '?' where in doubt.
+* Enter 'none' at 'save config' and 'save cache'
+
+Mount partition 2 and install alpine:
+
+```
+mount /dev/mmcblk0p2 /mnt
+export FORCE_BOOTFS=1
+setup-disk -m sys /mnt
+```
+
+Remount partiton 1 and cleanup:
+```
+mount -o remount,rw /media/mmcblk0p1
+rm -f /media/mmcblk0p1/boot/*
+cd /mnt
+rm boot/boot
+```
+
+The right place for boot is in partition 1:
+
+```
+mv boot/* /media/mmcblk0p1/boot/
+```
+
+We don't need boot in partition 2 now:
+
+```
+rm -Rf boot
+```
+
+A directory for partition 1 on next boot:
+
+```
+mkdir media/mmcblk0p1
+```
+
+A link for boot from partition 1. Don't worry about error.
+
+```
+ln -s media/mmcblk0p1/boot boot
+```
+
+Update /etc/fstab:
+
+```
+echo "/dev/mmcblk0p1 /media/mmcblk0p1 vfat defaults 0 0" >> etc/fstab
+set -i '/cdrom/d' etc/fstab
+set -i '/floppy/d' etc/fstab
+cd /media/mmcblk0p1
+```
+
+Indicate the root filesystem is on partition 2
+
+```
+sed -i 's/$/ root=\/dev\/mmcblk0p2/' /media/mmcblk0p1/cmdline.txt
+```
+
+The installation is now complete, you can use 'poweroff' to continue steps after installation later or use 'reboot' to restart system and continue with post-installation steps.
+_
+
+## Post Installation Setup
+
+Enable Software Clock and Disable hardware clock
+
+```
+rc-update add swclock boot
+rc-update del hwclock boot
+```
+
+Enable checking time using Network Time Protocol
+
+```
+setup-ntp
+```
+
+Updating System
+
+```
+apk update
+apk upgrade
+```
+
+Now any applications of liking may be installed. My setup may be found in 'Doc/My Configurations' in this website.
+_
+
+## Refrences and Links
+
+=> https://wiki.alpinelinux.org/wiki/Classic_install_or_sys_mode_on_Raspberry_Pi ⚬ RPi Sys Installation
+=> https://wiki.alpinelinux.org/wiki/Raspberry_Pi ⚬ Rpi General Installation
+=> https://wiki.alpinelinux.org/wiki/Raspberry_Pi_-_Headless_Installation ⚬ RPi Headless Installation
+=> https://wiki.alpinelinux.org/wiki/Raspberry_Pi_3_-_Browser_Client ⚬ RPi Browser Client
+=> https://docs.alpinelinux.org/user-handbook/0.1a/index.html ⚬ Alpine User Handbook
+_
+
+See ya!
+
+^ Patience is a golden virtue 🌾

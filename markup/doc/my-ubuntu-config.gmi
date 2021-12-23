@@ -1,0 +1,67 @@
+# My Ubuntu Configurations
+
+.bashrc, .profile and configurations can be found here.
+_
+
+## .bashrc
+
+A simple getgo [verison] is what I use to update my go installation. Works like charm so far.
+
+```
+function getgo() {
+    wget -P /tmp/ https://dl.google.com/go/go"$@".linux-amd64.tar.gz
+    rm -rf ~/.local/go
+    tar -C ~/.local -xzf /tmp/go"$@".linux-amd64.tar.gz
+    rm -rf /tmp/go"$@".linux-amd64.tar.gz
+    go version
+}
+```
+
+Some aliases:
+
+```
+alias g='amfora'
+alias du='du -bhs'
+alias ls='ls --color=auto --group-directories-first'
+```
+
+For custom command prompt. Add this and comment the part commented below it.
+(Stole it from StackOverflow and added my choice of colors)
+
+```
+parse_git_branch() {
+ git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+if [ "$color_prompt" = yes ]; then
+ PS1='${debian_chroot:+($debian_chroot)}\[\033[00;35m\]\u\[\033[00;30m\]@\[\033[00;36m\]\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[01;31m\]$(parse_git_branch)\[\033[00m\]\$ '
+else
+ PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w$(parse_git_branch)\$ '
+fi
+
+# if [ "$color_prompt" = yes ]; then
+#    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+# else
+#     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+# fi
+# unset color_prompt force_color_prompt
+```
+_
+
+## .profile
+
+I usually place binaries like micro, amfora, youtube-dl in ~./local/bin (labeled as General below)
+
+```
+# Go
+export PATH=$PATH:~/.local/go/bin:~/go/bin
+export GOPATH=$HOME/go
+
+# General
+export PATH=$PATH:~/.local/bin
+```
+_
+
+Bye Bye
+
+^ 🌼
+

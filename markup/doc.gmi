@@ -1,0 +1,13 @@
+# Doc
+
+You can find my handy docs here. I believe more in writing it down than trying to remember it. Then I just have to remember where I had written it.
+_
+
+=> /doc/git-blast-sheet.html ⚬ Git Blast Sheet
+=> /doc/fresh-ubuntu-install.html ⚬ Fresh Ubuntu Install
+=> /doc/alpine-linux-RPi-setup.html ⚬ Alpine Linux Raspberry Pi Installation
+=> /doc/my-configurations.html ⚬ My Configurations
+=> /doc/bookmarks.html ⚬ Bookmarks
+
+^ Never Perfect but always closer 🐙
+

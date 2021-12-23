@@ -1,0 +1,198 @@
+#  Git Blast Sheet
+
+Git feels like magic. Truly amazing tool. Best place to use is a UNIX-like system. You can also use Git Bash if you are using windows.
+_
+
+## Initial Setup
+
+After installing git it needs to be configured. Something like this:
+
+```
+git config --global user.name "Arsh Jethi"
+git config --global user.email "arshjethi@example.com"
+git config --global --list
+```
+
+Next, it is always nice to setup ssh for ease of use later. For that first we need to generate a set of asymmetric encryption keys:
+
+```
+ssh-keygen -t rsa
+```
+
+This generates encryption keys of type that use an algorithm called rsa.
+
+```
+cat ~/.ssh/id_rsa.pub
+```
+
+Now we can conveniently copy the public key and put it in the Settings>SSH section of our remote repository (likely Github or Gitlab).
+_
+
+##  New Local Repository
+
+Initialize git in your project directory.
+
+```
+git init
+```
+
+Add files to staging area. The dot add's all changed/added files. You can also stage individual files by naming them.
+
+You can create a file named .gitignore and list files in it that you don't want git to track.
+
+```
+git add .
+```
+
+Commit what you added to staging area.
+
+```
+git commit -m 'message'
+```
+
+Now, you can check status of your project directory.
+
+```
+git status
+```
+_
+
+## Link to remote repository
+
+Whatever we did so far was done on the local system. To sync this project with a remote repository we must create a new repository in our remote host and then link this project with that. The SSH keys setup before authenticates us. By default git creates branch named 'master'. While Github creates a branch named 'main'. To change the master branch to main we use the next command.
+
+```
+git branch -M main
+git remote add origin git@github.com:jethi/repo-name.git
+git push -u origin main
+```
+
+Origin is a standard alias for the repository used when talking to remote repo. The git push above has '-u' flag, which means set-upstream. It is necessary to add this flag for the first time to link to the remote repository. This enable argument-less use of several commands like git-pull. I highly recommend reading the documentation.
+
+Now, you can simply send the changes done in the recent commit to the remote repo by a simple.
+
+```
+git push
+```
+
+You can also fetch changes done in the repo by a fellow collaborator.
+
+```
+git pull
+```
+
+Cloning a remote repo. You can clone a open-source remote repository on you system easily and even fetch changes done to the repo.
+
+```
+git clone repository-url
+```
+
+The repo cloned above would already be linked to upstream. But you can't push changes in it without appropiate permissions. You can always make a pull request though.
+_
+
+##  You made a mistake ?
+
+If you added changes to staging area from mistake, you can unstage them like this:
+
+```
+git reset HEAD file-name
+```
+
+We can also discard changes to a file done in a recent commit.
+
+```
+git checkout -- file-name
+```
+
+Delete a file being tracked.
+
+```
+git rm file-name
+```
+
+Rename a file being tracked.
+
+```
+git mv initial-name new-name
+```
+_
+
+## The power of git
+
+You can check your previous commits and revert to any of them. This can also be done for a single file. How cool is that ?
+
+'git log' helps us do that:
+
+```
+git help log
+```
+
+Some ways to see previous commits:
+
+```
+git log
+git log --abbrev-commit
+git log --oneline --graph --decorate
+git log hash-from hash-to
+git log --since="1 day ago"
+```
+_
+
+## Branches
+
+Basic stuff. I recommend learning more from the documentation.
+
+How to create a branch ? First let's list all branches.
+
+```
+git branch
+git branch -a
+```
+
+The '-a' flag lists all branches local + remote. 'master' is the default branch.
+
+Creating a new branch:
+
+```
+git branch name-of-new-branch
+```
+
+To switch to another branch we use the term 'checkout':
+
+```
+git checkout other-branch
+```
+
+We can also create and switch to a branch in one command:
+
+```
+git checkout -b new-branch-name
+```
+
+Rename a branch:
+
+```
+git branch -m old-name new-name
+```
+
+Deleting a branch:
+
+Note: A branch you are currently on cannot be deleted.
+
+```
+git branch -d name-of-branch
+```
+
+Merging branches:
+
+Note: The branch name supplied below gets merged into the branch you are currently checked-in on.
+
+```
+git merge branch-name
+```
+_
+
+That's it for now. Make sure you read more about branches, merging, merging vs rebasing and diff. Keep learning !!!
+
+^ Believe in yourself 🐻
+

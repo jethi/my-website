@@ -1,0 +1,10 @@
+# My Configurations
+
+This page contains configurations I use for different distros and applications.
+_
+
+=> /doc/my-ubuntu-config.html ⚬ Ubuntu Configuration
+=> /doc/my-alpine-linux-config.html ⚬ Alpine Linux Configuration
+=> /doc/my-micro-setup.html ⚬ Micro Text Editor
+
+^ Expect nothing in return 🐞

@@ -1,0 +1,108 @@
+# Fresh Ubuntu Install
+
+This document assumes that a minimal install of Ubuntu has already been performed and lists the steps to be followed now.
+_
+
+## Installing and Removing packages
+
+### Remove Snapd:
+
+I prefer using apt and like its model of sharing dependencies instead of sandboxing everything. Works well for me :)
+
+```
+sudo rm -rf /var/cache/snapd
+sudo apt purge snapd gnome-software-plugin-snap
+sudo apt autoremove
+rm -rf ~/snap
+sudo rm -rfv /var/lib/apt/lists/*
+sudo apt update
+```
+
+### Remove GUI Update Manager:
+
+I update my packages when I need to, don't need the constant stream of update notifications.
+
+```
+sudo apt remove update-manager
+```
+
+### Install Packages:
+
+I like to install these packages first and start tinkering with my system while the other packages install in the background.
+
+```
+sudo apt install gnome-tweaks ubuntu-restricted-extras
+```
+
+Other packages:
+
+```
+sudo apt install build-essential python3 curl git ssh keepassx vlc transmission thunderbird libreoffice inxi acpi rename usb-creator-gtk software-properties-gtk chrome-gnome-shell
+```
+_
+
+## Configurations:
+
+### Enable Minimize:
+
+```
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+```
+
+### Disable Notifications Popups:
+
+Create a startup application with this command.
+
+```
+gsettings set org.gnome.desktop.notifications show-banners false
+```
+_
+
+## Optimization for reducing SSD writes
+
+### Check current sappiness:
+
+```
+cat /proc/sys/vm/swappiness
+```
+
+### Change it to 10:
+
+Doing this causes the swap storage to be used when RAM is 90% in use.
+
+```
+sudo nano /etc/sysctl.conf
+```
+
+At the end of this file add: vm.swappiness=10
+
+###  Disable file time-stamp update:
+
+```
+sudo nano /etc/fstab
+```
+
+Add noatime after errors=remount-ro followed by a comma.
+Like This: errors=remount-ro,noatime
+(Save and Reboot)
+_
+
+## Some other things
+
+These programs need to be installed from the web. Go can be installed using the 'getgo' function added in .bashrc.
+
+* kdeconnect plugin
+* micro
+* vscode
+* go
+* discord
+* telegram
+* steam
+
+Customise terminal, text editor and add new fonts like JetBrains Mono and Roboto.
+_
+
+That's all folks.
+
+^ Starting is the first step 🐣
+

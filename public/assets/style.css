@@ -1,0 +1,135 @@
+:root {
+	--body-bg:#ECECEC;
+	--nav-foot-bg:#C5DEDD;
+	--button-bg:#FFF1E6;
+	--button-hover:#B7B7E1;
+	--block-pre-bg:#F1ECCE;
+	--html-bg:#F2F2F2;
+	--border-col:#3B3B46;
+	--all-text:#3B3B46;
+}
+
+/* Color Schemes: Background  Button      Code     Nav+Bot */
+
+@font-face {
+	font-family: 'Gelasio';
+	src: url('./Fonts/Gelasio/Gelasio-Regular.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./Fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Fira Code';
+	src: url('./Fonts/Fira_Code/static/FiraCode-Regular.ttf') format('truetype');
+	font-display: swap;
+}
+
+html {
+	padding: 0px;
+	background: var(--html-bg);
+}
+
+body {
+	margin: 0 auto;
+	outline: solid 1px var(--border-col);
+	max-width: 700px;
+	color: var(--all-text);
+	background-color: var(--body-bg);
+}
+
+#navbar {
+	padding: 7px 7px;
+	margin-bottom: 17px;
+	background-color: var(--nav-foot-bg);
+}
+
+.button {
+	padding: 2px 10px;
+	border: solid 1px var(--border-col);
+	border-radius: 10px;
+	text-decoration: none;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	font-family: 'Gelasio', serif;
+	font-size: 1.25rem;
+	color: var(--all-text);
+	background-color: var(--button-bg);
+}
+
+h1, h2, h3 {
+	margin: 0;
+	font-family: 'Gelasio', serif;
+}
+
+p, ul, a {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+li{
+    margin-top: 5px;
+}
+
+li:first-child {
+    margin-top:0;
+}
+
+a {
+	text-decoration: none;
+	margin: 0px 20px;
+	color: var(--all-text);
+	font-weight: bold;
+}
+
+a:hover {
+	background-color: var(--button-hover)
+}
+
+#navbar a {
+	margin: 0px;
+}
+
+#navbar a:hover {
+	background-color: var(--button-hover);
+}
+
+blockquote {
+	padding: 5px 10px;
+	margin: 0px 30px;
+	font-family: 'Fira Code', monospace;
+	border: dashed 1px var(--border-col);
+	background-color: var(--block-pre-bg);
+}
+pre {
+	padding: 5px 10px;
+	margin: 0px;
+	font-family: 'Fira Code', monospace;
+	background-color: var(--block-pre-bg);
+	border: solid 0.5px;
+	overflow-x: scroll;
+}
+
+#data {
+	padding: 0px 10px;
+}
+
+footer {
+	margin-top: 17px;
+	background-color: var(--nav-foot-bg);
+}
+
+hr {
+	margin: 11px 0px 0px;
+}
+
+#bottomtext {
+	margin: 0px;
+	text-align: center;
+	padding: 10px;
+}

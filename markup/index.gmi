@@ -1,0 +1,20 @@
+# SiFl - Flying while keeping it simple.
+
+Welcome, have a nice stay. This website focuses on being simple yet efficient for providing information about me, programming, linux, automobiles and technology.
+
+The docs section is mostly for my personal use; however, you might find something useful there.
+
+> Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible you are, by definition, not smart enough to debug it.
+>
+> &nbsp; - Brian W. Kernighan and P. J. Plauger
+> The Elements of Programming Style
+_
+
+## Other Info:
+
+* This is an ad and tracker free static website with no JavaScript.
+* Source can be found at- https://github.com/jethi/website
+* Source code of this website is licensed under the ISC license.
+
+^ Learn Humility and have Gratitude 🌱
+

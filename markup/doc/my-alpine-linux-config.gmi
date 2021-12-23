@@ -1,0 +1,151 @@
+# My Alpine Linux Configurations
+
+This document illustrates configuration of Alpine Linux post-installation.
+_
+
+## General
+
+Update and upgrade:
+
+```
+apk update
+apk upgrade
+```
+
+Setup sudo:
+
+```
+apk add sudo
+adduser foo
+adduser foo wheel
+visudo
+```
+
+Uncomment line 82 with 'wheel ALL=(ALL) ALL'
+
+Installing some general packages:
+```
+sudo apk add build-base git curl wget
+```
+
+Installing dependencies for x:
+
+```
+sudo apk add libx11-dev libxft-dev libxinerama-dev ncurses dbus-x11
+```
+
+RPi specific dependencies for x:
+
+```
+sudo apk add xf86-video-fbdev
+```
+
+Clone, configure and install dwm, dmenu and st. OR any other desktop enviornment of your choice.
+
+I use xwallpaper for setting my wallpaper. Following are the dependencies for compiling it:
+
+```
+sudo apk add autoconf libxpm libxpm-dev libxcb libxcb-dev xcb-util xcb-util-dev xcb-util-image xcb-util-image-dev pixman pixman-dev libjpeg-turbo libjpeg-turbo-dev libpng libpng-dev libseccomp libseccomp-dev
+```
+
+It might need this too:
+
+```
+sudo apk add automake
+```
+
+I use micro text editor.
+
+Some other packages that I like to install:
+
+```
+sudo apk add htop man-db man-db-doc man-pages tree xclip chromium sxiv go ffmpeg mpd mpv
+```
+
+## .profile
+
+```
+[ -n "$BASH_VERSION" -o "$BB_ASH_VERSION" ] && PS1='\[\e[38;2;255;192;203m\]:\[\e[38;2;159;175;175m\].\[\e[38;2;255;207;175m\]::\[\e[38;2;128;212;170m\]\W\[\e[38;2;0;0;1m\]\$\[\e[m\] '
+export PS1
+
+# Non-login shell
+export ENV=~/.shrc
+
+# Go
+export PATH=$PATH:~/.local/go/bin:~/go/bin
+export GOPATH=$HOME/go
+
+# General
+export PATH=$PATH:~/.local/bin
+
+# pfetch variable
+export PF_INFO="ascii title os host kernel uptime pkgs shell wm memory palette"
+
+startx
+```
+_
+
+## .xinitrc
+
+```
+xwallpaper --zoom ~/.local/wallpapers/wp1-mountains.jpg &
+topbar &
+exec dwm
+```
+_
+
+## topbar
+
+```
+#!/bin/sh
+
+cdate() {
+	date="$(date | awk '{print $1, $2, $3}')"
+	time="$(date +%r)"
+	echo " [$date  $time] "
+}
+
+mem() {
+	mem="$(free -m | awk '/Mem:/ { printf $3"M / "$2"M" }')"
+	echo "[RAM: $mem] "
+}
+
+cputemp() {
+	temp="$(cat /sys/devices/virtual/thermal/thermal_zone0/temp)"
+	temp="$(expr $temp / 1000)"
+	echo "[CPU: $temp C]"
+}
+
+status() {
+	echo "$(cdate) $(mem) $(cputemp)"
+}
+
+while true; do
+	xsetroot -name "$(status)"
+	sleep 1
+done
+```
+_
+
+## .shrc
+
+```
+# Executed for non-login shells.
+# Path to this file needs to be set in ENV variable
+
+alias ls='ls --group-directories-first'
+alias du='du -hs'
+alias m='micro'
+```
+_
+
+## Refrences and Links
+
+=> https://suckless.org/ ⚬ Suckless
+=> https://micro-editor.github.io/ ⚬ Micro Text Editor
+=> https://github.com/stoeckmann/xwallpaper ⚬ Xwallpaper
+_
+
+That's all!
+
+^ 🌼

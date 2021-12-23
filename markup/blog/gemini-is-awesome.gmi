@@ -1,0 +1,20 @@
+# Gemini is Awesome
+
+21 Oct, 2020 by Arsh Jethi
+_
+
+## So, what is Gemini ?
+
+Gemini is a protocol just like HTTP and Gopher. Provides more features than Gopher and less features than HTTP. Focus on simplicity, privacy and generality. I strongly recommend reading more about it at the official source.
+
+## Why I like it ?
+
+I discovered Gemini yesterday and the most exciting thing for me was how simple it was to understand the working under the hood.
+
+A working client in 100 lines of code and a TLS library ? It is amazing for introducing students to an internet protocol.
+_
+
+That's all folks. Cheers
+
+^ Take Responsibility 🐌
+

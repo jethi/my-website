@@ -1,0 +1,51 @@
+# Bookmarks
+
+Just some links from the web.
+_
+
+## Some interesting websites:
+
+=> https://fabiensanglard.net/ ⚬ Fabien Sanglard's website
+=> https://drewdevault.com/ ⚬ Drew DeVault's Blog
+=> https://100r.co ⚬ Hundred Rabbits
+=> https://netmeister.org ⚬ Netmeister
+=> https://magnusson.io ⚬ Magnusson
+=> https://danluu.com ⚬ Danluu
+=> https://benhoyt.com ⚬ Ben Hoyt
+
+=> https://lobste.rs/ ⚬ Lobsters
+=> https://news.ycombinator.com/ ⚬ Hacker News
+=> https://www.phoronix.com/ ⚬ Phoronix
+_
+
+## Anime
+
+=> https://subsplease.org/ ⚬ SubsPlease
+=> https://www.erai-raws.info/ ⚬ Erai-raws
+_
+
+## Programming
+
+### Web
+
+=> https://developer.mozilla.org/en-US/ ⚬ MDN Web Docs
+
+### Go
+
+=> https://golang.org/ ⚬ Official Website
+=> https://pkg.go.dev/std ⚬ Standard Library
+
+### C
+
+=> https://en.cppreference.com/w/c ⚬ C reference
+=> http://c-faq.com/index.html ⚬ C FAQ
+
+### Python 3
+
+=> https://developers.google.com/edu/python/ ⚬ Google's Python Class
+_
+
+That's it for now, will be adding more. Cheers!
+
+^ Standing on the shoulders of giants 🐯
+
