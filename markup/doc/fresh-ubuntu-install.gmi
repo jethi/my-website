@@ -100,9 +100,17 @@ These programs need to be installed from the web. Go can be installed using the 
 * steam
 
 Customise terminal, text editor and add new fonts like JetBrains Mono and Roboto.
+
+## Backup Restoration
+
+My Backup drive is formatted in NTFS the mod bits of files are altered on restoring. I like to run these commands to mass change file mod bits back.
+
+```
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+```
 _
 
 That's all folks.
 
 ^ Starting is the first step 🐣
-

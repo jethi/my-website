@@ -98,6 +98,14 @@ If you added changes to staging area from mistake, you can unstage them like thi
 git reset HEAD file-name
 ```
 
+Reset last commits (The number 1 is for the last commit can be changed for multiple previous commits):
+The --soft flag doesn't discard those commits, instead brings them to working area.
+Note: If the commit that is reset was already pushed to remote you must force push the next commit using --force
+
+```
+git reset --soft HEAD~1
+```
+
 We can also discard changes to a file done in a recent commit.
 
 ```

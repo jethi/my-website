@@ -151,6 +151,20 @@ git reset HEAD file-name
 </pre>
 		<br/>
 		<p>
+			Reset last commits (The number 1 is for the last commit can be changed for multiple previous commits):
+		</p>
+		<p>
+			The --soft flag doesn't discard those commits, instead brings them to working area.
+		</p>
+		<p>
+			Note: If the commit that is reset was already pushed to remote you must force push the next commit using --force
+		</p>
+		<br/>
+<pre>
+git reset --soft HEAD~1
+</pre>
+		<br/>
+		<p>
 			We can also discard changes to a file done in a recent commit.
 		</p>
 		<br/>

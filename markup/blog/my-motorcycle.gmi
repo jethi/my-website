@@ -5,46 +5,59 @@ _
 
 ## Meet my motorcycle
 
-Its been 10 months since I bought my Red BS6 RR310, odometer has clocked about 4000 km so far. Truly an excellent machine and totally worth but, has some scope for improvement. 2021 update brings a much needed sportier position for footpegs and handel bars with fully adjustable suspension.
+Its been 10 months since I bought my Red BS6 RR310, odometer has clocked about 4000 km so far. Truly an excellent machine and totally worth the asking price but, has some scope for improvement. 2021 update brings sportier position for foot-pegs and handlebars (Race Kit) with fully adjustable suspension (Dynamic Kit). I plan to keep updating this blog, last updated date on the bottom.
 
 ## What is awesome
 
-* Extremely pretty motorcycle (subjective, but we need to talk if you don't like the aesthetics)
-* Practical - wonderful track/road balance
-* Very good chassis and weight distribution
-* Extremely stable at high speeds
-* Comfy suspension (2021 update brings fully adjustable suspension option, NICEEEE)
-* Revv happy engine
+* Best in class aesthetics (subjective, but we need to talk if you don't like them looks)
+* Stock exaust sound at high RPM's is lovely (considering it is a single cylinder a slip-on would spoil it for me)
+* 180 mm ground clearance, sufficiently covered radiator and plastic cover for under-body protection perfect for our crater ridden roads. Still doesn't look like a horse (sorry adventure bike riders)
+* Very good chassis and weight distribution. Front end is planted when slaying corners as well as at high speeds.
+* Feels confident even post 120 Kmph all the way to the top speed of 160 which is hard to say about naked motorcycles
+* The riding ergonomics are not so dedicated (even less than my friend's Vitpilen 250) which is excellent in my books for the road. Only requires slight bending forward, it doesn't push the unexpected shocks straight through your spine unlike in a naked motorcycle with upright stance, instead lets your muscles and joints in tandem absorb it better. Anyone who wants to track it may opt for the 'Race Kit' in BTO which lowers the handlebars and makes the foot pegs higher.
+* Rev limiter is nice and soft, not like hitting a wall unlike KTM motorcycles.
+* Firm but comfy suspension (2021 update brings fully adjustable suspension option, NICEEEE)
+* Revv happy engine, a little buzzy post 6K RPM but it sings so idc
 * Brakes have incredible feedback (not big bite, very linear feel and that's exactly what I like)
 * Fairly good gearbox (sometimes, shows neutral in gear indicator when actually in a gear, a bug ?)
 * Excellent Rain/Dry tyres- Michelin Road 5 (absolutely love em, no need for rain mode)
 * TVS Performance gear is nice entry level motorcycle riding gear at a budget
+* The clock successfully remember the time. (Both RE Meteor and Vitpilen 250 fail at this. The former even has two independent clocks one in the standard console and one in the tripper system)
 
 ## What can be improved
 
-* Official track day events for the enthusiasts throughout india, with subscription based updates to the customer directly from the company (no need to bring dealerships into this)
-* The plastic console LCD cover gets scratched easily. Please use a somewhat scratch resistant glass for the console instead of plastic. Gorilla Glass 5 or something.
+* No glass window to see oil levels (need to use the dip stick)
+* Horn/Indicators are a little hard to reach (I have pretty long hands/fingers)
+* Need official track day events for the enthusiasts throughout India, with subscription based updates to the customer directly from the company (no need to bring dealerships into this)
+* The plastic console LCD cover gets scratched easily and can't be independently replaced since its only available as an assembly.
+* Small dealer and service network. I need to go 50 Kms to get my motorcycle serviced and I am one of the lucky ones. (Update: RR310 is now available in my city)
+* I find vertical tachometer in Sports and Track mode hard to read especially when it starts changing color near the red-line.
 * Ride modes switch animation is pretty slow.
-* Optional 'Quickshifter' and 'Tire pressure monitoring' in BTO.
+* Optional 'Quickshifter' and 'Tire pressure monitoring' required in BTO.
 * A cruise-control feature would be very nice and implementable when electronic throttle is already present.
 * Very little to no official accessories (tank bags, bike cover, paddock stand, smartphone holder, radiator guard, tinted windshield etc)
 * The navigation system is not good, just using 'Google Maps' on phone, works way better. The same is true for Royal Enfield Meteor's new (Tripper?) navigation system (which my friend has, took us from an old bad route when we were going to Kasauli, SAD) I don't understand why manufacturers want to re-invent the wheel, if a solution works well just embrace it.
+
+## Maintenance
+
+* Annual/10,000 Km paid service costs around Rs 3,000 (Engine oil, Oil Filter and Labour)
+* Regular 500 Km chain clean, clutch adjust costs around Rs 240 + I bring my own Motul C1 and C2 chain clean and lube.
 
 ## My opinion/rant
 
 As noted earlier- using smartphone for navigation is the way to go, also the riding modes and ABS profiles are not needed at 34 PS max power, just flat out track mode always would easily work.
 
-Which brings me to- instead of 5" TFT display (also, my love for analog tachometer) just an analog tachometer and smaller TFT (2" ?) for other information. It would look totally unique and make analog lovers happy at the same time.
+Which brings me to- instead of 5" TFT display (also, my love for analog tachometer) just an analog tachometer and smaller TFT (2-3" ?) for other information. It would look totally unique and make analog lovers happy at the same time.
 
 No bluetooth required, hence a less powerful microcontroller with lower capabilities would do the job. Instead useful features like Quickshifter or TPM may be provided.
 
-Manufacturers need to market 'No Gimmicks' as a feature. If you don't believe me try A/B testing with the customers. But, don't forget to educate them first by linking this article or creating your own marketing material inspired by this blog. Hahaha
+Manufacturers need to market 'No Gimmicks' as a feature. If you don't believe me try A/B testing with the customers. But, don't forget to educate them first by linking this blog or creating your own marketing material inspired by this blog. Hahaha
 
 Stating that, I really like the 'Glide Through Technology Plus' keep it till like 2nd gear (maybe flickable with a simple button) and cruise control may be usable from 3rd gear onwards or something.
 
 ## Final Message
 
-I hope TVS makes their next middle weight sports bike soon (hopefully >= 600cc and > 2 cylinders, with nice acoustics, partnership with Triumph maybe ?) less bloated with useless features. And I would happily upgrade (Oh, and keep the weight down, 'curvy and pretty' not 'sharp and futuristic' like Yamaha R* motorcycles). Keep the good work up!
+I hope TVS makes their next middle weight sports bike soon (hopefully > 2 cylinders) less bloated with useless features. If I remember correctly the partnership with BMW is for motorcycles below 500cc so a 75 PS (or more), 499 CC inline 4 would be monstrous if it undercuts the Honda CBR 650R and the upcoming Kawasaki ZX-4R price and weight (say about 190 Kg kerb weight) And I would happily upgrade (Oh, and keep it 'curvy and pretty' not 'sharp and futuristic' like Yamaha R* motorcycles). Keep the good work up!
 
 Sidenote: I absolutely adore 2006 Yamaha R1 aesthetics.
 _
@@ -52,4 +65,5 @@ _
 Okay, party's over.
 Bye Bye
 
+Updated on 21 Mar, 2022
 ^ But does it matter ? 🍉

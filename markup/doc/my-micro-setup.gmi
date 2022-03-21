@@ -21,6 +21,7 @@ set colorscheme zenburn
 set softwrap true
 set wordwrap true
 set rmtrailingws true
+set eofnewline on
 ```
 
 Note: xclip is needed as clipboard for external copy-paste operations.

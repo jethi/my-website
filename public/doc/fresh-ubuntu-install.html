@@ -146,6 +146,17 @@ sudo nano /etc/fstab
 		<p>
 			Customise terminal, text editor and add new fonts like JetBrains Mono and Roboto.
 		</p>
+		<br/>
+		<h2>Backup Restoration</h2>
+		<br/>
+		<p>
+			My Backup drive is formatted in NTFS the mod bits of files are altered on restoring. I like to run these commands to mass change file mod bits back.
+		</p>
+		<br/>
+<pre>
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+</pre>
 		<hr/>
 		<br/>
 		<p>
