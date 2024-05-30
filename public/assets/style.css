@@ -35,7 +35,7 @@ html {
 }
 
 body {
-	margin: 0 auto;
+	margin: 0 auto !important;
 	outline: solid 1px var(--border-col);
 	max-width: 700px;
 	color: var(--all-text);
